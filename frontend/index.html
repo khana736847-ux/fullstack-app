@@ -8,7 +8,7 @@
 <script>
 async function loadData() {
   try {
-    const res = await fetch('http://localhost:5000');
+    const res = await fetch('https://fullstack-backend-zzkd.onrender.com');
     const json = await res.json();
     document.getElementById('data').innerText = json.message + " | " + json.time;
   } catch(e) {
