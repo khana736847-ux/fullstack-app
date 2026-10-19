@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body style="font-family: sans-serif; text-align:center; margin-top:50px">
+  <h1>Hello Arif! Full Stack is Ready</h1>
+  <h2 id="data">Backend se data load ho raha hai...</h2>
+  <button onclick="loadData()" style="padding:10px 20px; font-size:16px">Refresh Data</button>
+
+<script>
+async function loadData() {
+  try {
+    const res = await fetch('http://localhost:5000');
+    const json = await res.json();
+    document.getElementById('data').innerText = json.message + " | " + json.time;
+  } catch(e) {
+    document.getElementById('data').innerText = "Error: " + e.message;
+  }
+}
+loadData();
+</script>
+</body>
+</html>
